@@ -1,0 +1,368 @@
+/* --- Global Reset & Variables --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --bg-color: #0a0a0a;       /* Very dark grey, almost black */
+    --card-bg: #141414;        /* Slightly lighter for cards */
+    --text-main: #ffffff;      /* Pure white */
+    --text-sec: #a0a0a0;       /* Grey for secondary text */
+    --accent: #ffffff;         /* White accent */
+    --font-main: 'Poppins', sans-serif;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-color);
+    color: var(--text-main);
+    line-height: 1.6;
+}
+
+/* --- Layout Utility --- */
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+/* --- Header & Navigation --- */
+header {
+    background-color: rgba(10, 10, 10, 0.9); /* Glass effect */
+    backdrop-filter: blur(10px);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    padding: 20px 0;
+    border-bottom: 1px solid #333;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+header h3 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+header nav ul {
+    display: flex;
+    gap: 30px;
+}
+
+header nav ul li a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-sec);
+}
+
+header nav ul li a:hover {
+    color: var(--text-main);
+}
+
+/* --- Hero Section --- */
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-top: 80px; /* Offset for fixed header */
+}
+
+.hero-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hero-text {
+    flex: 1;
+}
+
+.hero-text h2 {
+    font-size: 1.5rem;
+    color: var(--text-sec);
+    font-weight: 400;
+}
+
+.hero-text h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin: 10px 0;
+    line-height: 1.1;
+}
+
+.hero-text .role {
+    font-size: 1.8rem;
+    color: var(--text-main);
+    margin-bottom: 20px;
+}
+
+.hero-text p {
+    color: var(--text-sec);
+    max-width: 500px;
+    margin-bottom: 30px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.hero-image img {
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 50%; /* Circle image */
+    border: 2px solid #333;
+    transition: 0.5s;
+}
+
+.hero-image img:hover {
+    border-color: var(--text-main);
+}
+
+/* --- Buttons --- */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 1px solid var(--text-main);
+    color: var(--text-main);
+    font-weight: 600;
+    cursor: pointer;
+    background: transparent;
+}
+
+.btn:hover {
+    background-color: var(--text-main);
+    color: var(--bg-color);
+}
+
+/* --- General Section Styles --- */
+.section {
+    padding: 80px 0;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+    border-left: 5px solid var(--text-main);
+    padding-left: 15px;
+    line-height: 1;
+}
+
+/* --- About Section --- */
+.about-text {
+    color: var(--text-sec);
+    font-size: 1.1rem;
+    max-width: 800px;
+}
+
+/* --- Skills Grid --- */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    background-color: var(--card-bg);
+    padding: 30px;
+    border: 1px solid #333;
+    transition: 0.3s;
+}
+
+.skill-card:hover {
+    border-color: var(--text-main);
+}
+
+.skill-card h3 {
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+}
+
+.skill-card p {
+    color: var(--text-sec);
+}
+
+/* --- Projects Section --- */
+.project-card {
+    background-color: var(--card-bg);
+    padding: 40px;
+    border: 1px solid #333;
+    margin-bottom: 20px;
+    transition: 0.3s;
+    position: relative;
+    padding-right: 300px;
+}
+
+.project-card:hover {
+    border-color: var(--text-main);
+}
+
+.project-card h2 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.project-card p {
+    color: var(--text-sec);
+    margin-bottom: 10px;
+}
+
+.project-img {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    width: 260px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+
+
+/* --- Contact Form --- */
+.contact-form {
+    max-width: 600px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+input, textarea {
+    width: 100%;
+    padding: 15px;
+    background-color: var(--card-bg);
+    border: 1px solid #333;
+    color: var(--text-main);
+    font-family: var(--font-main);
+    font-size: 1rem;
+    outline: none;
+    transition: 0.3s;
+}
+
+textarea {
+    resize: vertical;
+}
+
+input:focus, textarea:focus {
+    border-color: var(--text-main);
+    background-color: #000;
+}
+
+.btn-submit {
+    width: 100%;
+}
+
+/* --- Footer --- */
+footer {
+    padding: 40px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    color: var(--text-sec);
+    font-size: 0.9rem;
+    margin-top: 50px;
+}
+
+/* --- Responsive Design (Mobile) --- */
+@media (max-width: 768px) {
+    header {
+        padding: 15px 0;
+    }
+    
+    .nav-container {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .hero-content {
+        flex-direction: column-reverse; /* Image on top, text below */
+        text-align: center;
+        gap: 30px;
+    }
+
+    .hero-image {
+        justify-content: center;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+
+    .hero-text p {
+        margin: 0 auto 30px auto;
+    }
+
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* --- Footer & Social Icons --- */
+footer {
+    background-color: #000; /* Pure black for footer */
+    padding: 50px 0;
+    text-align: center;
+    border-top: 1px solid #333;
+    margin-top: 50px;
+}
+
+.social-icons {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 30px; /* Space between icons */
+}
+
+.social-icons a {
+    color: var(--text-sec); /* Grey initially */
+    font-size: 1.8rem; /* Icon size */
+    transition: 0.3s ease;
+    display: inline-block;
+}
+
+/* Hover Effects */
+.social-icons a:hover {
+    color: var(--text-main); /* Turns white on hover */
+}
+
+/* Specific Brand Colors on Hover (Optional - if you want color) */
+/* If you want them to stay Black & White, do not include the lines below */
+.social-icons a:hover .fa-github { color: #fff; }
+.social-icons a:hover .fa-hackerrank { color: #2ec866; } /* HackerRank Green */
+.social-icons a:hover .fa-code { color: #ffa116; } /* LeetCode Orange */
+.social-icons a:hover .fa-envelope { color: #fff; }
+
+.copyright {
+    color: var(--text-sec);
+    font-size: 1rem;
+    letter-spacing: 2px;
+}
+
+
+
+/* Let's connect after clicking send message */
+#msg {
+    color: #61b752; /* Green color */
+    margin-top: 10px;
+    display: block;
+    text-align: center;
+    font-weight: bold;
+}

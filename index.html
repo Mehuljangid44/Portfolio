@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio - Mehul Jangid</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="Style.css">
+</head>
+
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <h3><a href="">Portfolio</a></h3>
+            <nav>
+                <ul>
+                    <li><a href="#Home">Home</a></li>
+                    <li><a href="#About">About</a></li>
+                    <li><a href="#Skills">Skills</a></li>
+                    <li><a href="#Projects">Projects</a></li>
+                    <li><a href="#Contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="Home" class="hero-section">
+            <div class="container hero-content">
+                <div class="hero-text">
+                    <h2>Hi, I am</h2>
+                    <h1>Mehul Jangid</h1>
+                    <h2 class="role">FullStack Java Developer</h2>
+                    <p>BCA 2nd Year student and aspiring Full Stack Java Developer passionate about building modern web
+                        applications. Currently turning ideas into real-world solutions.</p>
+                    <a href="MJCV.pdf" class="btn">View CV</a>
+                </div>
+                <div class="hero-image">
+                    <img src="mehul.jpeg" alt="Mehul Jangid">
+                </div>
+            </div>
+        </section>
+
+        <section id="About" class="section">
+            <div class="container">
+                <h1 class="section-title">About Me</h1>
+                <p class="about-text">BCA student with a strong interest in Full Stack Java Development. I have a solid
+                    foundation in HTML, CSS, and JavaScript, along with a basic understanding of backend development
+                    using Java and databases. Familiar with building responsive, visually appealing, and user-friendly
+                    web applications. Eager to apply my academic knowledge and continuously growing skill set through
+                    internship opportunities.</p><br>
+                <p class="about-text">Learning React | Strengthening Java | Aspiring Full Stack Developer — message me
+                    to know more.</p>
+            </div>
+        </section>
+
+        <section id="Skills" class="section">
+            <div class="container">
+                <h1 class="section-title">Skills</h1>
+                <div class="skills-grid">
+                    <div class="skill-card">
+                        <h3>FrontEnd</h3>
+                        <p>HTML, CSS, JavaScript</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>BackEnd</h3>
+                        <p>Java, PHP</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Database</h3>
+                        <p>MySQL</p>
+                    </div>
+                    <div class="skill-card">
+                        <h3>Soft Skills</h3>
+                        <p>Good Communication, Aptitude, Problem Solving, Teamwork, Time Management</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="Projects" class="section">
+            <div class="container">
+                <h1 class="section-title">Projects</h1>
+
+                <!-- 1 project -->
+                <div class="project-card">
+                    <h2>Personal Portfolio Website</h2>
+                    <p>Designed and developed to present my skills, projects, and contact details. Implemented
+                        responsive layouts and interactive elements.</p>
+                    <p class="tech-stack"><strong>Tech:</strong> HTML, CSS, JavaScript</p>
+                    <a href="">View Live </a>
+                    <img src="project1.png" class="project-img" alt="project1">
+                </div>
+
+                <!-- 2 project -->
+                <div class="project-card">
+                    <h2>TimePeices</h2>
+                    <p> I created this website to showcase a passion for elegant and sophisticated timepieces. This
+                        platform is designed to be a modern and engaging space where you can explore a curated
+                        collection of watches.</p>
+                    <p class="tech-stack"><strong>Tech:</strong> HTML, CSS, JavaScript, PHP, Session Management</p>
+                    <a href="">View Live </a>
+                    <img src="project2.png" class="project-img" alt="">
+                </div>
+            </div>
+        </section>
+
+        <section id="Contact" class="section">
+            <div class="container">
+                <h1 class="section-title">Let's Connect</h1>
+                <form name="submit-to-google-sheet" class="contact-form">
+                    <div class="form-group">
+                        <input type="text" name="Name" id="name" placeholder="Full Name" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" name="Email" id="email" placeholder="Email Address" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="Phone" id="phone" placeholder="Mobile Number">
+                    </div>
+                    <div class="form-group">
+                        <textarea name="Message" id="com" rows="5" placeholder="Your Message"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-submit">Send Message</button>
+                    <span id="msg"></span>
+                </form>
+
+                <script>
+                    const scriptURL = 'https://script.google.com/macros/s/AKfycbyXAnNlWxT_D_5pahf0JG2Y6GKwXj6sGGuYHm0KVTOkrNTWPkKQG76dYpEIlyNx_wWcYQ/exec';
+                    const form = document.forms['submit-to-google-sheet'];
+                    const msg = document.getElementById("msg");
+
+                    form.addEventListener('submit', e => {
+                        e.preventDefault();
+                        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                            .then(response => {
+                                msg.innerHTML = "Message sent successfully!";
+                                setTimeout(function () {
+                                    msg.innerHTML = "";
+                                }, 5000);
+                                form.reset();
+                            })
+                            .catch(error => console.error('Error!', error.message));
+                    });
+                </script>
+            </div>
+        </section>
+
+        <div class="container">
+            <div class="social-icons">
+                <a href="https://github.com/Mehuljangid44" target="_blank" title="GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a href="https://www.hackerrank.com/profile/mehuljangid5" target="_blank" title="HackerRank">
+                    <i class="fa-brands fa-hackerrank"></i>
+                </a>
+
+                <a href="https://leetcode.com/u/eXnEsaFRrz/" target="_blank" title="LeetCode">
+                    <i class="fa-solid fa-code"></i>
+                </a>
+
+                <a href="Mehuljangid44@outlook.com" title="Email Me">
+                    <i class="fa-solid fa-envelope"></i>
+                </a>
+            </div>
+    </main>
+
+    <footer>
+        <p class="copyright">Copyright © 2026 Mehul Jangid | All rights reserved</p>
+    </footer>
+
+</body>
+
+</html>
