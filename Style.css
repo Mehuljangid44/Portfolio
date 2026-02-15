@@ -77,7 +77,7 @@ header nav ul li a:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 80px; /* Offset for fixed header */
+    padding-top: 120px; /* Offset for fixed header */
 }
 
 .hero-content {
